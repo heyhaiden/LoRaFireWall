@@ -1,6 +1,10 @@
 # GONDOR: LoRa Telemetry System
 Simple fire detection system using two Arduino MKRWAN 1310s
 
+<p align="center">
+  <img src="/assets/images/finishedDevices.jpg">
+</p>
+
 ## Overview
 <p align="center">
   <img src="/assets/images/defensibleSpace.PNG">
@@ -27,11 +31,20 @@ This project was inspired by the idea of creating a digital defensible space in 
   <img src="/assets/fritzing/Fritzing_LoRaSender.PNG">
 </p>
 
+Calibrate the flame sensor using ```flameNeopixelAlert.ino```. The digital interface will send a HIGH signal when fire is detected by the sensor. Turn the potentiometer clock-wise to increase the detection threshold and counter-clockwise to decrease it. Keep in mind this sensor can be triggered by direct sunlight or a phone flashlight from close distances. If the flame is in-line with the sensor, it can detect from about 1.5m - 2m away.
+
+This reading will then trigger a state change on the LED strip until environmental conditions change again.
+
+<p align="center">
+  <img src="/assets/images/alertStates.PNG">
+</p>
+
 ### Circuit 
 
 <p align="center">
   <img src="/assets/fritzing/schematicFritzing.PNG">
 </p>
+
 
 ## Code
 This is a two part system consisting of a transmitter, or sender, and a receiver. Communication can either go one direction or two ways, depending on where LoRa packets are included. 
@@ -97,8 +110,38 @@ The monitor will show current readings and whether an alert has been triggered. 
 </p>
 
 ### Receiver
+In setup, initialize the LoRa radio using this code snippet:
+```
+Serial.println("Initializing GONDOR Sender");
 
+  // LoRa Radio setup
+  if (!LoRa.begin(868E6)) {
+    Serial.println("LoRa Radio connection failed!");
+    while (1);
+  }
+  ```
+In order to receive a LoRa packet, use the following code:
 
+```
+void parsePacket() {
+
+  // try to parse packet
+  int packetSize = LoRa.parsePacket();
+  if (packetSize) {
+    // received a packet
+    Serial.print("Received packet '");
+
+    // read packet
+    while (LoRa.available()) {
+      Serial.print((char)LoRa.read());
+    }
+
+    // print RSSI of packet
+    Serial.print("' with RSSI ");
+    Serial.println(LoRa.packetRssi());
+  }
+}
+```
 
 #### Serial Monitor
 <p align="center">
@@ -122,3 +165,8 @@ Using MakerCase as a template, I designed the final casing in Fusion360 and used
 - Add more devices and build a community mesh network
 
 ## Resources
+
+- https://docs.arduino.cc/learn/communication/lorawan-101#arduino-libraries-for-lora-connectivity
+- https://docs.arduino.cc/tutorials/mkr-wan-1310/the-things-network
+- https://docs.arduino.cc/tutorials/mkr-wan-1310/lora-send-and-receive
+- [The Limits of LoRaWAN in Event-Triggered Wireless Networked Control Systems](https://arxiv.org/pdf/2002.01472.pdf) (2020) Ivana Tomic, Laksh Bhatia, Michael J. Breza and Julie A. McCann
