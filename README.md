@@ -27,8 +27,8 @@ This project was inspired by the idea of creating a digital defensible space in 
   <img src="/assets/fritzing/Fritzing_LoRaSender.PNG">
 </p>
 
-<br>
-### Circuit
+### Circuit 
+
 <p align="center">
   <img src="/assets/fritzing/schematicFritzing.PNG">
 </p>
