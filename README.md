@@ -61,7 +61,21 @@ Serial.println("Initializing GONDOR Sender");
 Utilize the serial console to print current conditions of the DHT22 and determine if environmental threshholds are crossed, which then triggers a "yellow flag alert," activating the flame sensor to take time based snapshots.
 
 ```
-
+if ((Temperature <= 35) && (Humidity <= 50)) {
+  Serial.println("**GOOD CONDITIONS**");
+  ...
+}
+else {
+  if (flame_pin == HIGH) {
+    Serial.println("**FLAME DETECTED**");
+    ...
+    }
+    else {
+    Serial.println("**YELLOW FLAG WARNING**");
+    ...
+    }
+}
+```
 
 ### Receiver
 
