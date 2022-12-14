@@ -34,7 +34,10 @@ This project was inspired by the idea of creating a digital defensible space in 
 </p>
 
 ## Code
+This is a two part system consisting of a transmitter, or sender, and a receiver. Communication can either go one direction or two ways, depending on where LoRa packets are included. 
+### Sender
 
+### Receiver
 
 ## Housing
 <p align="center">
