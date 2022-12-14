@@ -90,11 +90,22 @@ LoRa.print(" % |");
 LoRa.endPacket();
 ```
 #### Serial Monitor
+The monitor will show current readings and whether an alert has been triggered. It will then send a numbered packet over LoRa.
+
 <p align="center">
   <img src="/assets/images/Sender_Console.PNG">
 </p>
 
 ### Receiver
+
+
+
+#### Serial Monitor
+<p align="center">
+  <img src="/assets/images/Receiver_Console.PNG">
+</p>
+
+
 
 ## Housing
 <p align="center">
