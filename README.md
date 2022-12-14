@@ -1,6 +1,10 @@
 # GONDOR: LoRa Telemetry System
 Simple fire detection system using two Arduino MKRWAN 1310s
 
+<p align="center">
+  <img src="/assets/images/finishedDevices.jpg">
+</p>
+
 ## Overview
 <p align="center">
   <img src="/assets/images/defensibleSpace.PNG">
