@@ -35,7 +35,29 @@ This project was inspired by the idea of creating a digital defensible space in 
 
 ## Code
 This is a two part system consisting of a transmitter, or sender, and a receiver. Communication can either go one direction or two ways, depending on where LoRa packets are included. 
+### Libraries
+|     |     |  
+| --- | --- | 
+| _***Item***_ | _***Description***_ | 
+| MKRWAN.h | Library for MKRWAN boards  | 
+| Adafruit_Neopixel.h | xxx | 
+| SPI.h | xxx |
+| LoRa.h |  xxx |
+| LowPower.h | xxx |
+| DHT.h | Library for DHT22 sensor |
+| DHT_U.h | xxx |
+
 ### Sender
+In setup, initialize the LoRa radio using this code snippet:
+```
+Serial.println("Initializing GONDOR Sender");
+
+  // LoRa Radio setup
+  if (!LoRa.begin(868E6)) {
+    Serial.println("LoRa Radio connection failed!");
+    while (1);
+  }
+  ```
 
 ### Receiver
 
