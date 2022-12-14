@@ -15,11 +15,11 @@ This project was inspired by the idea of creating a digital defensible space in 
 | _***Item***_ | _***Description***_ | 
 | Arduino MKRWAN 1310 | The Arduino MKR WAN 1310 provides a practical and cost effective solution to add LoRa® connectivity to projects requiring low power.  | 
 | Adafruit Neopixel Stick |  8 5050 (5mm x 5mm) smart RGB LEDs onto a PCB with mounting holes and a chainable design. | 
-| [DHT22 Sensor](https://www.adafruit.com/product/385) | A capacitive humidity sensor and a thermistor to measure surrounding air |
+| DHT22 Sensor | A capacitive humidity sensor and a thermistor to measure surrounding air |
 | KY-026 Flame Sensor |  Detects infrared light emitted by fire, has both digital and analog outputs and a potentiometer to adjust the sensitivity |
-| Antenna | xxx |
-| 80x100 Solar Cell | xxx|
-| Adafruit Universal USB / SOLAR / LIPO Charger | xxx |
+| Antenna | Whip Omnidirectional Telemetry Antenna with SMA Connector |
+| 80x100 Solar Cell | peak output, it produces 0.935W power with a peak voltage of 5.5V and a current of 170mA |
+| Adafruit Universal USB / SOLAR / LIPO Charger | Solar Charger Battery Charger 3.7V, 4.2V 1.5A |
 
 ## Schematics
 ### Breadboard 
