@@ -77,8 +77,10 @@ else {
 }
 ```
 In order to send an alert over LoRa, initialize a packet using uint16_t variables and strings.
+
 ```
      // Send packet
+     
       LoRa.beginPacket();
       LoRa.print("| ***FLAME DETECTED** | Temp: ");
       LoRa.print(Temperature);
@@ -86,7 +88,7 @@ In order to send an alert over LoRa, initialize a packet using uint16_t variable
       LoRa.print(Humidity);
       LoRa.print(" % |");
       LoRa.endPacket();
-      ```
+```
 
 ### Receiver
 
