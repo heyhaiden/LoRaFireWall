@@ -101,8 +101,38 @@ The monitor will show current readings and whether an alert has been triggered. 
 </p>
 
 ### Receiver
+In setup, initialize the LoRa radio using this code snippet:
+```
+Serial.println("Initializing GONDOR Sender");
 
+  // LoRa Radio setup
+  if (!LoRa.begin(868E6)) {
+    Serial.println("LoRa Radio connection failed!");
+    while (1);
+  }
+  ```
+In order to receive a LoRa packet, use the following code:
 
+```
+void parsePacket() {
+
+  // try to parse packet
+  int packetSize = LoRa.parsePacket();
+  if (packetSize) {
+    // received a packet
+    Serial.print("Received packet '");
+
+    // read packet
+    while (LoRa.available()) {
+      Serial.print((char)LoRa.read());
+    }
+
+    // print RSSI of packet
+    Serial.print("' with RSSI ");
+    Serial.println(LoRa.packetRssi());
+  }
+}
+```
 
 #### Serial Monitor
 <p align="center">
