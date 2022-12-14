@@ -40,4 +40,9 @@ Using MakerCase as a template, I designed the final casing in Fusion360 and used
 
 ## Future Improvements
 
+- Implementation of Low Power Library 
+- Security layer adding localAddress and destination bytes
+- Connect The Things Stack to IFTTT and create automated notification applets 
+- Add more devices and build a community mesh network
 
+## Resources
