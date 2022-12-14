@@ -22,11 +22,13 @@ This project was inspired by the idea of creating a digital defensible space in 
 | Adafruit Universal USB / SOLAR / LIPO Charger | xxx |
 
 ## Schematics
+### Breadboard 
 <p align="center">
   <img src="/assets/fritzing/Fritzing_LoRaSender.PNG">
 </p>
-Breadboard Layout
+
 <br>
+### Circuit
 <p align="center">
   <img src="/assets/fritzing/schematicFritzing.PNG">
 </p>
