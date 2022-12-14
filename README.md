@@ -31,6 +31,9 @@ This project was inspired by the idea of creating a digital defensible space in 
   <img src="/assets/fritzing/Fritzing_LoRaSender.PNG">
 </p>
 
+Once in your circuit, calibrate the flame sensor using ```flameNeopixelAlert.ino```. The digital interface will send a HIGH signal when fire is detected by the sensor. Turn the potentiometer clock-wise to increase the detection threshold and counter-clockwise to decrease it. Can be triggered by direct sunlight/iphone flashlight from close distances. If the flame is in-line with the sensor, it can detect from 1.5m - 2m away.
+ 
+
 ### Circuit 
 
 <p align="center">
