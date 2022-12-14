@@ -156,3 +156,8 @@ Using MakerCase as a template, I designed the final casing in Fusion360 and used
 - Add more devices and build a community mesh network
 
 ## Resources
+
+- https://docs.arduino.cc/learn/communication/lorawan-101#arduino-libraries-for-lora-connectivity
+- https://docs.arduino.cc/tutorials/mkr-wan-1310/the-things-network
+- https://docs.arduino.cc/tutorials/mkr-wan-1310/lora-send-and-receive
+- The Limits of LoRaWAN in Event-Triggered Wireless Networked Control Systems https://arxiv.org/pdf/2002.01472.pdf
