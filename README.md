@@ -34,9 +34,7 @@ This project was inspired by the idea of creating a digital defensible space in 
   <img src="/assets/images/fusion360_boxEnclosure.PNG">
 </p>
 Using MakerCase as a template, I designed the final casing in Fusion360 and used Rhino7 to laser cut and assemble the boxes using 3mm plywood.
-<p align="center">
-  <img src="/assets/images/solarPanel_front.jpg">
-</p>
+
 
 ## Future Improvements
 
