@@ -144,6 +144,10 @@ void parsePacket() {
 ```
 
 #### Serial Monitor
+Received Signal Strength Indication (RSSI) is the received signal power in milliwatts and is measured in dBm.
+
+Minimum = -120 dBm. If RSSI=-30dBm: signal is strong. If RSSI=-120dBm: signal is weak.
+
 <p align="center">
   <img src="/assets/images/Receiver_Console.PNG">
 </p>
