@@ -31,14 +31,20 @@ This project was inspired by the idea of creating a digital defensible space in 
   <img src="/assets/fritzing/Fritzing_LoRaSender.PNG">
 </p>
 
-Once in your circuit, calibrate the flame sensor using ```flameNeopixelAlert.ino```. The digital interface will send a HIGH signal when fire is detected by the sensor. Turn the potentiometer clock-wise to increase the detection threshold and counter-clockwise to decrease it. Keep in mind this sensor can be triggered by direct sunlight or a phone flashlight from close distances. If the flame is in-line with the sensor, it can detect from about 1.5m - 2m away.
- 
+Calibrate the flame sensor using ```flameNeopixelAlert.ino```. The digital interface will send a HIGH signal when fire is detected by the sensor. Turn the potentiometer clock-wise to increase the detection threshold and counter-clockwise to decrease it. Keep in mind this sensor can be triggered by direct sunlight or a phone flashlight from close distances. If the flame is in-line with the sensor, it can detect from about 1.5m - 2m away.
+
+This reading will then trigger a state change on the LED strip until environmental conditions change again.
+
+<p align="center">
+  <img src="/assets/images/alertStates.PNG">
+</p>
 
 ### Circuit 
 
 <p align="center">
   <img src="/assets/fritzing/schematicFritzing.PNG">
 </p>
+
 
 ## Code
 This is a two part system consisting of a transmitter, or sender, and a receiver. Communication can either go one direction or two ways, depending on where LoRa packets are included. 
