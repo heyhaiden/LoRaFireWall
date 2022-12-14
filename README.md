@@ -31,7 +31,7 @@ This project was inspired by the idea of creating a digital defensible space in 
   <img src="/assets/fritzing/Fritzing_LoRaSender.PNG">
 </p>
 
-Once in your circuit, calibrate the flame sensor using ```flameNeopixelAlert.ino```. The digital interface will send a HIGH signal when fire is detected by the sensor. Turn the potentiometer clock-wise to increase the detection threshold and counter-clockwise to decrease it. Can be triggered by direct sunlight/iphone flashlight from close distances. If the flame is in-line with the sensor, it can detect from 1.5m - 2m away.
+Once in your circuit, calibrate the flame sensor using ```flameNeopixelAlert.ino```. The digital interface will send a HIGH signal when fire is detected by the sensor. Turn the potentiometer clock-wise to increase the detection threshold and counter-clockwise to decrease it. Keep in mind this sensor can be triggered by direct sunlight or a phone flashlight from close distances. If the flame is in-line with the sensor, it can detect from about 1.5m - 2m away.
  
 
 ### Circuit 
@@ -163,4 +163,4 @@ Using MakerCase as a template, I designed the final casing in Fusion360 and used
 - https://docs.arduino.cc/learn/communication/lorawan-101#arduino-libraries-for-lora-connectivity
 - https://docs.arduino.cc/tutorials/mkr-wan-1310/the-things-network
 - https://docs.arduino.cc/tutorials/mkr-wan-1310/lora-send-and-receive
-- The Limits of LoRaWAN in Event-Triggered Wireless Networked Control Systems https://arxiv.org/pdf/2002.01472.pdf
+- [The Limits of LoRaWAN in Event-Triggered Wireless Networked Control Systems](https://arxiv.org/pdf/2002.01472.pdf)
