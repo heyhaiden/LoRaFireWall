@@ -89,7 +89,7 @@ LoRa.print(Humidity);
 LoRa.print(" % |");
 LoRa.endPacket();
 ```
-
+#### Serial Monitor
 <p align="center">
   <img src="/assets/images/Sender_Console.PNG">
 </p>
