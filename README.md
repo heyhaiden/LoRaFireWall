@@ -79,18 +79,33 @@ else {
 In order to send an alert over LoRa, initialize a packet using uint16_t variables and strings.
 
 ```
-     // Send packet
-     
-      LoRa.beginPacket();
-      LoRa.print("| ***FLAME DETECTED** | Temp: ");
-      LoRa.print(Temperature);
-      LoRa.print(" C | Hum: ");
-      LoRa.print(Humidity);
-      LoRa.print(" % |");
-      LoRa.endPacket();
+// Send packet
+
+LoRa.beginPacket();
+LoRa.print("| ***FLAME DETECTED** | Temp: ");
+LoRa.print(Temperature);
+LoRa.print(" C | Hum: ");
+LoRa.print(Humidity);
+LoRa.print(" % |");
+LoRa.endPacket();
 ```
+#### Serial Monitor
+The monitor will show current readings and whether an alert has been triggered. It will then send a numbered packet over LoRa.
+
+<p align="center">
+  <img src="/assets/images/Sender_Console.PNG">
+</p>
 
 ### Receiver
+
+
+
+#### Serial Monitor
+<p align="center">
+  <img src="/assets/images/Receiver_Console.PNG">
+</p>
+
+
 
 ## Housing
 <p align="center">
