@@ -45,13 +45,13 @@ void loop() {
 void parsePacket() {
 
   // Check if a packet has been received
-  int packetSize = modem.parsePacket();
+  int packetSize = LoRa.parsePacket();
 
   if (packetSize) {
     // Read the data from the packet
     String receivedData;
-    while (modem.available()) {
-      receivedData += (char)modem.read();
+    while (LoRa.available()) {
+      receivedData += (char)LoRa.read();
     }
 
     // Check if the received data contains the string "fire"
