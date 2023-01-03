@@ -12,11 +12,10 @@
 // Set up the MKR WAN 1310
 LoRaModem modem;
 
-#define DHTTYPE DHT22  
-#define PIN 3
-#define NUMPIXELS 8
+#define PIXEL_PIN 3
+#define NUM_PIXELS 8
 
-Adafruit_NeoPixel pixels(NUMPIXELS, PIN);
+Adafruit_NeoPixel pixels(NUM_PIXELS, PIXEL_PIN);
 
 void setup() {
   Serial.begin(9600);
@@ -38,7 +37,7 @@ void setup() {
 }
 
 void loop() {
-  
+
   parsePacket();
   
 }
@@ -59,7 +58,7 @@ void parsePacket() {
     if (strstr(receivedData.c_str(), "FLAME")) {
 
       // Turn on the NeoPixel strip
-      for (int i = 0; i < NUMPIXELS; i++) {
+      for (int i = 0; i < NUM_PIXELS; i++) {
         pixels.setPixelColor(i, pixels.Color(0, 20, 0));
       }
       pixels.show();
@@ -72,4 +71,8 @@ void parsePacket() {
     // Put the device in deep sleep until a packet is received
     LowPower.sleep();
   }
+}
+
+void wakeUp() {
+  // The device has been woken up by the interrupt
 }
