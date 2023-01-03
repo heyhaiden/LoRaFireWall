@@ -70,37 +70,35 @@ Serial.println("Initializing GONDOR Sender");
     while (1);
   }
   ```
-Utilize the serial console to print current conditions of the DHT22 and determine if environmental threshholds are crossed, which then triggers a "yellow flag alert," activating the flame sensor to take time based snapshots.
+Use an ```if``` statement to determine when environmental threshholds measured by the DHT22 sensor are crossed. Utilize the NeoPixel strip to visualize these alerts, and trigger a LoRa packet to send to your receiver device when red flag conditions are present and active flame detected. 
 
 ```
-if ((Temperature <= 35) && (Humidity <= 50)) {
-  Serial.println("**GOOD CONDITIONS**");
-  ...
-}
-else {
-  if (flame_pin == HIGH) {
-    Serial.println("**FLAME DETECTED**");
-    ...
+if ((temperature >= 35) && (humidity <= 15)) {
+
+    // Change color on LED strip
+    for (int i = 0; i < NUM_PIXELS; i++) {
+      pixels.setPixelColor(i, pixels.Color(20, 20, 0));
     }
-    else {
+    pixels.show();
+
+    // Display alert in serial monitor
     Serial.println("**YELLOW FLAG WARNING**");
-    ...
-    }
-}
-```
-In order to send an alert over LoRa, initialize a packet using uint16_t variables and strings.
+    Serial.print("Sending packet: ");
+    Serial.println(counter);
 
-```
-// Send packet
+    // Send packet
+    LoRa.beginPacket();
+    LoRa.print("| YELLOW FLAG WARNING | Temp: ");
+    LoRa.print(temperature);
+    LoRa.print(" C | Hum: ");
+    LoRa.print(humidity);
+    LoRa.print(" % |");
+    LoRa.endPacket();
 
-LoRa.beginPacket();
-LoRa.print("| ***FLAME DETECTED** | Temp: ");
-LoRa.print(Temperature);
-LoRa.print(" C | Hum: ");
-LoRa.print(Humidity);
-LoRa.print(" % |");
-LoRa.endPacket();
+    counter++;
+      
 ```
+
 #### Serial Monitor
 The monitor will show current readings and whether an alert has been triggered. It will then send a numbered packet over LoRa.
 
@@ -113,7 +111,6 @@ In setup, initialize the LoRa radio using this code snippet:
 ```
 Serial.println("Initializing GONDOR Sender");
 
-  // LoRa Radio setup
   if (!LoRa.begin(868E6)) {
     Serial.println("LoRa Radio connection failed!");
     while (1);
@@ -124,23 +121,20 @@ In order to receive a LoRa packet, use the following code:
 ```
 void parsePacket() {
 
-  // try to parse packet
   int packetSize = LoRa.parsePacket();
   if (packetSize) {
-    // received a packet
     Serial.print("Received packet '");
 
-    // read packet
     while (LoRa.available()) {
       Serial.print((char)LoRa.read());
     }
 
-    // print RSSI of packet
     Serial.print("' with RSSI ");
     Serial.println(LoRa.packetRssi());
   }
 }
 ```
+
 You can also include a while statement to determine if a desired string is included in a packet. In this case, if ```"FLAME"``` is found, the device will change the color of the NeoPixel strip.
 
 ```
@@ -148,19 +142,15 @@ String receivedData;
     while (LoRa.available()) {
       receivedData += (char)LoRa.read();
     }
-
-    // Check if the received data contains the string "fire"
+    
     if (strstr(receivedData.c_str(), "FLAME")) {
-
-      // Turn on the NeoPixel strip
+    
       for (int i = 0; i < NUM_PIXELS; i++) {
         pixels.setPixelColor(i, pixels.Color(0, 20, 0));
       }
       pixels.show();
-
-      delay(5000);
-    }
-    ```
+    }  
+```
 
 #### Serial Monitor
 Received Signal Strength Indication (RSSI) is the received signal power in milliwatts and is measured in dBm.
@@ -172,7 +162,6 @@ Values are expressed as a negative number. If RSSI=-30dBm: signal is strong. If 
 </p>
 
 
-
 ## Housing
 <p align="center">
   <img src="/assets/images/fusion360_boxEnclosure.PNG">
@@ -182,7 +171,6 @@ Using MakerCase as a template, I designed the final casing in Fusion360 and used
 
 ## Future Improvements
 
-- Implementation of Low Power Library 
 - Security layer adding localAddress and destination bytes
 - Connect The Things Stack to IFTTT and create automated notification applets 
 - Add more devices and build a community mesh network
