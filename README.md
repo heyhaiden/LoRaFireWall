@@ -141,11 +141,31 @@ void parsePacket() {
   }
 }
 ```
+You can also include a while statement to determine if a desired string is included in a packet. In this case, if ```"FLAME"``` is found, the device will change the color of the NeoPixel strip.
+
+```
+String receivedData;
+    while (LoRa.available()) {
+      receivedData += (char)LoRa.read();
+    }
+
+    // Check if the received data contains the string "fire"
+    if (strstr(receivedData.c_str(), "FLAME")) {
+
+      // Turn on the NeoPixel strip
+      for (int i = 0; i < NUM_PIXELS; i++) {
+        pixels.setPixelColor(i, pixels.Color(0, 20, 0));
+      }
+      pixels.show();
+
+      delay(5000);
+    }
+    ```
 
 #### Serial Monitor
 Received Signal Strength Indication (RSSI) is the received signal power in milliwatts and is measured in dBm.
 
-Minimum = -120 dBm. If RSSI=-30dBm: signal is strong. If RSSI=-120dBm: signal is weak.
+Values are expressed as a negative number. If RSSI=-30dBm: signal is strong. If RSSI=-120dBm: signal is weak.
 
 <p align="center">
   <img src="/assets/images/Receiver_Console.PNG">
