@@ -141,15 +141,6 @@ void parsePacket() {
   }
 }
 ```
-The RSSI stands for "Received Signal Strength Indication." It is measured in dBm and is a negative value.
-The closer to 0 the better the signal is.
-
-Typical LoRa RSSI values are:
-
-RSSI minimum = -120 dBm.
-
-If RSSI=-30dBm: signal is strong.
-If RSSI=-120dBm: signal is weak.
 
 #### Serial Monitor
 Received Signal Strength Indication (RSSI) is the received signal power in milliwatts and is measured in dBm.
