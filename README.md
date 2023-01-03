@@ -53,12 +53,11 @@ This is a two part system consisting of a transmitter, or sender, and a receiver
 | --- | --- | 
 | _***Item***_ | _***Description***_ | 
 | MKRWAN.h | Library for MKRWAN boards  | 
-| Adafruit_Neopixel.h | xxx | 
-| SPI.h | xxx |
-| LoRa.h |  xxx |
-| LowPower.h | xxx |
+| Adafruit_Neopixel.h | Controls neopixel strip | 
+| LoRa.h |  Send messages over LoRa radio |
+| ArduinoLowPower.h | Control idle and sleep settings for powering the board |
 | DHT.h | Library for DHT22 sensor |
-| DHT_U.h | xxx |
+| DHT_U.h | Add'l library for DHT22 sensor |
 
 ### Sender
 In setup, initialize the LoRa radio using this code snippet:
@@ -142,6 +141,15 @@ void parsePacket() {
   }
 }
 ```
+The RSSI stands for "Received Signal Strength Indication." It is measured in dBm and is a negative value.
+The closer to 0 the better the signal is.
+
+Typical LoRa RSSI values are:
+
+RSSI minimum = -120 dBm.
+
+If RSSI=-30dBm: signal is strong.
+If RSSI=-120dBm: signal is weak.
 
 #### Serial Monitor
 Received Signal Strength Indication (RSSI) is the received signal power in milliwatts and is measured in dBm.
