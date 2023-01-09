@@ -76,7 +76,7 @@ void parsePacket() {
   
   else {
     // Put the device in deep sleep until a packet is received
-    LowPower.sleep();
+    //LowPower.sleep();
   }
 }
 
