@@ -80,6 +80,6 @@ void parsePacket() {
   }
 }
 
-void wakeUp() {
+/*void wakeUp() {
   // The device has been woken up by the interrupt
-}
+}*/
