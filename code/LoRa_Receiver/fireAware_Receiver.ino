@@ -48,6 +48,13 @@ void parsePacket() {
   int packetSize = LoRa.parsePacket();
 
   if (packetSize) {
+    
+     // Turn on the NeoPixel strip
+      for (int i = 0; i < NUM_PIXELS; i++) {
+        pixels.setPixelColor(i, pixels.Color(20, 20, 0));
+      }
+      pixels.show();
+    
     // Read the data from the packet
     String receivedData;
     while (LoRa.available()) {
@@ -59,7 +66,7 @@ void parsePacket() {
 
       // Turn on the NeoPixel strip
       for (int i = 0; i < NUM_PIXELS; i++) {
-        pixels.setPixelColor(i, pixels.Color(0, 20, 0));
+        pixels.setPixelColor(i, pixels.Color(20, 0, 0));
       }
       pixels.show();
 
