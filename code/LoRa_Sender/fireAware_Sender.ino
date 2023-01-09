@@ -119,9 +119,9 @@ void loop() {
   }
 
   // Put the device in deep sleep for 1 hour
-  LowPower.sleep(3600);
+  //LowPower.sleep(3600);
 }
 
-void wakeUp() {
+/*void wakeUp() {
   // The device has been woken up by the interrupt
-}
+}*/
