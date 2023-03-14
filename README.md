@@ -1,5 +1,5 @@
-# FireDetect: LoRa Telemetry System
-Simple fire detection system using two Arduino MKRWAN 1310s
+# FireWall: LoRa Telemetry System
+Building a digital defensible space system using two Arduino MKRWAN 1310s
 
 <p align="center">
   <img src="/assets/images/finishedDevices.jpg">
